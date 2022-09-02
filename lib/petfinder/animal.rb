@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Petfinder
-  class Pet
+  class Animal
     attr_reader :name, :species, :characteristics, :breed, :colours, :age, :coat, :size, :social
 
     def initialize(attributes)

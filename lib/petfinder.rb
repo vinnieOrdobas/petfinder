@@ -5,5 +5,5 @@ require_relative "petfinder/version"
 module Petfinder
   autoload :Client, "petfinder/client"
   autoload :Error, "petfinder/error"
-  autoload :Pet, "petfinder/pet"
+  autoload :Animal, "petfinder/animal"
 end
