@@ -2,8 +2,8 @@
 
 module Petfinder
   class Animal
-    attr_reader :name, :type, :species, :attributes, :breed, :colours, 
-    :age, :coat, :size, :environment, :description, :tags, :gender
+    attr_reader :name, :type, :species, :attributes, :breed, :colours,
+                :age, :coat, :size, :environment, :description, :tags, :gender
 
     def initialize(attributes)
       @type = attributes.fetch(:type.to_s)

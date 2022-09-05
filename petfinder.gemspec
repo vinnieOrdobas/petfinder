@@ -39,6 +39,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "faraday", "~> 1.7"
   spec.add_dependency "faraday_middleware", "~> 1.1"
+  spec.add_development_dependency("json")
   spec.add_development_dependency("pry")
   spec.add_development_dependency("webmock", "~> 3.0")
 end
