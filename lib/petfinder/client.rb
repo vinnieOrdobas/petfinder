@@ -29,7 +29,9 @@ module Petfinder
       data = @connection.get do |req|
         req.headers = @headers
       end
-      data.body["animals"]
+      data.body["animals"].map do |animal|
+        Petfinder::Animal.new(animal)
+      end
     end
 
     private

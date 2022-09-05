@@ -20,5 +20,34 @@ module Petfinder
       @name = attributes.fetch(:name.to_s)
       @description = attributes.fetch(:description.to_s)
     end
+
+    def model!
+      model = {
+        pet_type: type,
+        species: species,
+        age: age,
+        primary_breed: breed["primary"],
+        secondary_breed: breed["secondary"],
+        mixed_breed: breed["mixed"],
+        unknown_breed: breed["unknown"],
+        primary_colour: colours["primary"],
+        secondary_colour: colours["secondary"],
+        tertiary_colour: colours["tertiary"],
+        gender: gender,
+        size: size,
+        coat: coat,
+        declawed: attributes["declawed"],
+        spayed_neutered: attributes["spayed_neutered"],
+        house_trained: attributes["house_trained"],
+        special_needs: attributes["special_needs"],
+        shots_current: attributes["shots_current"],
+        good_with_children: environment["children"],
+        good_with_dogs: environment["dogs"],
+        good_with_cats: environment["cats"],
+        tags: tags.join(", "),
+        name: name,
+        description: description.gsub("\n", " ")
+      }
+    end
   end
 end
