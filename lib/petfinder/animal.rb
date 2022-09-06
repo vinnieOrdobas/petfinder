@@ -21,7 +21,7 @@ module Petfinder
       @description = attributes.fetch(:description.to_s)
     end
 
-    def model!
+    def model
       model = {
         pet_type: type,
         species: species,
