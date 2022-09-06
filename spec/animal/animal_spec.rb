@@ -34,6 +34,6 @@ RSpec.describe Petfinder::Animal do
   end
 
   it "has a model method" do
-    expect(animal.model!).to be_a Hash
+    expect(animal.model).to be_a Hash
   end
 end
