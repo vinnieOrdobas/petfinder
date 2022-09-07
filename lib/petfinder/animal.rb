@@ -17,12 +17,12 @@ module Petfinder
       @attributes = attributes.fetch(:attributes.to_s)
       @environment = attributes.fetch(:environment.to_s)
       @tags = attributes.fetch(:tags.to_s)
-      @name = pet_name(attributes.fetch(:name.to_s))
+      @name = attributes.fetch(:name.to_s)
       @description = attributes.fetch(:description.to_s)
     end
 
     def model
-      model = {
+      {
         pet_type: type,
         species: species,
         age: age,
@@ -45,19 +45,9 @@ module Petfinder
         good_with_dogs: environment["dogs"],
         good_with_cats: environment["cats"],
         tags: tags.join(", "),
-        name: name,
-        description: description.gsub("\n", " ")
+        name: name.include?(" -") ? name.split(" ").first : name,
+        description: description
       }
-    end
-
-    private
-
-    def pet_name(name)
-      if name.include? " -"
-        name.split(" ").first
-      else
-        name
-      end
     end
   end
 end
