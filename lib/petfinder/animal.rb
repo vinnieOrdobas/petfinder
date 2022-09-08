@@ -3,7 +3,7 @@
 module Petfinder
   class Animal
     attr_reader :name, :type, :species, :attributes, :breed, :colours,
-                :age, :coat, :size, :environment, :description, :tags, :gender
+                :age, :coat, :size, :environment, :description, :tags, :gender, :photos
 
     def initialize(attributes)
       @type = attributes.fetch(:type.to_s)
@@ -17,8 +17,9 @@ module Petfinder
       @attributes = attributes.fetch(:attributes.to_s)
       @environment = attributes.fetch(:environment.to_s)
       @tags = attributes.fetch(:tags.to_s)
-      @name = attributes.fetch(:name.to_s)
+      @name = attributes.fetch(:name.to_s).include?(" -") ? attributes.fetch(:name.to_s).split(" ").first : attributes.fetch(:name.to_s)
       @description = attributes.fetch(:description.to_s)
+      @photos = attributes.fetch(:primary_photo_cropped.to_s)
     end
 
     def model
@@ -46,7 +47,8 @@ module Petfinder
         good_with_cats: environment["cats"],
         tags: tags.join(", "),
         name: name.include?(" -") ? name.split(" ").first : name,
-        description: description
+        description: description,
+        photos: photos
       }
     end
   end
