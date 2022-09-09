@@ -51,7 +51,7 @@ module Petfinder
         tags: tags.join(", "),
         name: name.include?(" -") ? name.split(" ").first : name,
         description: description,
-        photos: photos
+        photos: photos["large"]
       }
     end
   end
