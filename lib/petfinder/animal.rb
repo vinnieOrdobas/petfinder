@@ -3,9 +3,11 @@
 module Petfinder
   class Animal
     attr_reader :name, :type, :species, :attributes, :breed, :colours,
-                :age, :coat, :size, :environment, :description, :tags, :gender, :photos
+                :age, :coat, :size, :environment, :description, :tags, :gender, :photos,
+                :id
 
     def initialize(attributes)
+      @id = attributes.fetch(:id.to_s)
       @type = attributes.fetch(:type.to_s)
       @species = attributes.fetch(:species.to_s)
       @breed = attributes.fetch(:breeds.to_s)

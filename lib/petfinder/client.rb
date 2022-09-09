@@ -25,6 +25,14 @@ module Petfinder
       @data = fetch_animals
     end
 
+    def fetch_animal(id)
+      animal = @connection.get do |req|
+        req.url "/v2/animals/#{id}"
+        req.headers = @headers
+      end
+      Petfinder::Animal.new(animal.body["animal"])
+    end
+
     def fetch_animals
       data = @connection.get do |req|
         req.headers = @headers
