@@ -30,7 +30,12 @@ module Petfinder
         req.url "/v2/animals/#{id}"
         req.headers = @headers
       end
-      Petfinder::Animal.new(animal.body["animal"])
+      if animal.status == 200
+        pet = Petfinder::Animal.new(animal.body["animal"])
+      else
+        pet = "No pet found"
+      end
+      pet
     end
 
     def fetch_animals

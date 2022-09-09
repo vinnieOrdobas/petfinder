@@ -26,6 +26,7 @@ module Petfinder
 
     def model
       {
+        id: id,
         pet_type: type,
         species: species,
         age: age,
